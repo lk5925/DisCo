@@ -159,6 +159,7 @@ def get_parser(desc, default_task='translation'):
 
     parser = argparse.ArgumentParser(allow_abbrev=False)
     # fmt: off
+    parser.add_argument('-lvs','--l-v-s', default=False, action='store_true', required=False)
     parser.add_argument('--no-progress-bar', action='store_true', help='disable progress bar')
     parser.add_argument('--log-interval', type=int, default=1000, metavar='N',
                         help='log progress every N batches (when progress bar is disabled)')
