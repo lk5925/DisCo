@@ -581,7 +581,7 @@ class TransformerEncoder(FairseqEncoder):
             x = layer(x, encoder_padding_mask)
         if self.normalize:
             x = self.layer_norm(x)
-        
+
         predicted_lengths_logits = torch.matmul(x[0, :, :], self.embed_lengths.weight.transpose(0, 1)).float()
         predicted_lengths_logits[:, 0] += float('-inf')   # Cannot predict the len_token
         predicted_lengths = F.log_softmax(predicted_lengths_logits, dim=-1)
