@@ -71,7 +71,6 @@ class DisCoTransformer(Transformer_nonautoregressive):
                 tgt_dict, args.decoder_embed_dim, is_encoder=False, path=args.decoder_embed_path
             )
 
-
         encoder = TransformerEncoder(args, src_dict, encoder_embed_tokens, args.encoder_embed_scale)
         decoder = SelfTransformerDecoderQMask(args, tgt_dict, decoder_embed_tokens, args.decoder_embed_scale)
         return DisCoTransformer(encoder, decoder)
